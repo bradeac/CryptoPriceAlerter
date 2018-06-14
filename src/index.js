@@ -18,7 +18,7 @@ const main = async () => {
     cron.schedule('* * * * *', async () => {
         let PCNBTC = await fetch('PCN/BTC')
 
-        if (PCNBTC.ask < '0.00000014') {
+        if (PCNBTC.ask <= '0.00000014') {
             pusher.note(
                 process.env.PUSHBULLET_DEVICE_ID,
                 'Peepcoin',
